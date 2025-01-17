@@ -1,0 +1,788 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAREMI LASH LOFT</title>
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap');
+
+        body {
+            background-color: #0f172a;
+            font-family: 'Space Grotesk', sans-serif;
+            min-height: 100vh;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.8; }
+        }
+
+        .endpoint-card, .stats-card {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .endpoint-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            border-color: rgba(147, 197, 253, 0.5);
+        }
+
+        .stats-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(147, 197, 253, 0.3);
+        }
+
+        .Btn {
+            width: 180px;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(to right, #77530a, #ffd277, #77530a, #77530a, #ffd277, #77530a);
+            background-size: 250%;
+            background-position: left;
+            color: #ffd277;
+            font-size: 1rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition-duration: 1s;
+            overflow: hidden;
+        }
+
+        .Btn::before {
+            position: absolute;
+            content: "BOOK AN APPOINTMENT";
+            color: #ffd277;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 97%;
+            height: 90%;
+            border-radius: 8px;
+            transition-duration: 1s;
+            background-color: rgba(0, 0, 0, 0.842);
+            background-size: 200%;
+        }
+
+        .Btn:hover {
+            background-position: right;
+            transition-duration: 1s;
+        }
+
+        .Btn:hover::before {
+            background-position: right;
+            transition-duration: 1s;
+        }
+
+        .Btn:active {
+            transform: scale(0.95);
+        }
+
+        .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .hamburger {
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger-line {
+            display: block;
+            width: 24px;
+            height: 2px;
+            margin: 5px auto;
+            background-color: white;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .logo-container {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .blinking-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #2ca58d; /* Green color */
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+/* Blinking animation */
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0.3;
+    }
+}
+    </style>
+</head>
+<body class="text-gray-200">
+    <!-- Navbar -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-50 px-6 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html#" class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                YAREMI LASH LOFT
+            </a>
+
+            <!-- Hamburger Menu -->
+            <div class="hamburger lg:hidden" id="hamburger">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-8">
+                <a href="tqto.html" class="hover:text-blue-400 transition-colors">CONTACT ME</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed top-0 left-0 h-full w-64 bg-gray-900 z-40 p-6 lg:hidden">
+        <div class="flex flex-col space-y-6 mt-16">
+            <a href="tqto.html" class="hover:text-blue-400 transition-colors">CONTACT ME</a>
+        </div>
+    </div>
+
+    <!-- Header with Logo -->
+    <header class="py-24 px-6 text-center animate__animated animate__fadeIn">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
+            <!-- Logo/Image Container -->
+            <div class="logo-container w-32 h-32 md:w-48 md:h-48 relative">
+                <div class="w-full h-full rounded-full bg-gradient-to-br from-blue-500 to-purple-600 opacity-20 absolute animate-pulse"></div>
+                <div class="w-full h-full rounded-full bg-gradient-to-br from-blue-400 to-purple-500 opacity-30 absolute" style="transform: scale(0.9)"></div>
+                <img src="images/4hq1u5.jpg" alt="DAVID CYRIL APIs Logo" class="w-full h-full object-contain relative z-10">
+            </div>
+
+            <!-- Title and Description -->
+            <div class="text-center md:text-left">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-yellow-400 to-pink-500 bg-clip-text text-transparent">
+                    YAREMI LASH LOFT🌛
+                </h1>
+                <p class="mt-4 text-gray-400">Yaremi Lashes: Where Every Blink Tells a Story</p>
+
+                <!-- Button -->
+                <div class="mt-6 flex justify-center">
+                    <button class="Btn" onclick="window.location.href='https://wa.me/2348125075099?text=I%20would%20like%20to%20book%20an%20appointment%20at%20Yaremi%20Lash%20Loft';">
+                        BOOK AN APPOINTMENT 
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+   <main>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit">Search</button>
+      </div>
+
+    <div id="services" style="background: linear-gradient(to right, #ffe6f2, #ffcce7); padding: 60px 20px; text-align: center; border-radius: 15px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);">
+        <h2 style="font-family: 'Brush Script MT', cursive; font-size: 3em; color: #ff69b4; margin-bottom: 30px;">Our Exclusive Services</h2>
+        <p style="font-size: 1.3em; color: #ff85c2; margin-bottom: 50px;">At Yaremi Lash Loft, we offer a range of services designed to bring out the best in you. Here’s what we specialise in:</p>
+      
+        <!-- Services Cards -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;">
+          <!-- Lash Extensions -->
+          <div class="service-card" style="background: white; border-radius: 15px; width: 300px; padding: 20px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); text-align: center;">
+            <img src="/pic/lashext.png" alt="Lash Extensions" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
+            <h3 style="font-size: 1.5em; color: #ff69b4;">Lash Extensions</h3>
+            <p style="font-size: 1.1em; color: #ff85c2;">Enhance your natural beauty with our expertly crafted lash extensions for a glamorous look.</p>
+          </div>
+      
+          <!-- Brow Shaping -->
+          <div class="service-card" style="background: white; border-radius: 15px; width: 300px; padding: 20px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); text-align: center;">
+            <img src="/pic/brow.png" alt="Brow Shaping" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
+            <h3 style="font-size: 1.5em; color: #ff69b4;">Brow Shaping</h3>
+            <p style="font-size: 1.1em; color: #ff85c2;">Achieve perfectly shaped brows to complement your face and enhance your expressions.</p>
+          </div>
+      
+          <!-- Lash Lifts -->
+          <div class="service-card" style="background: white; border-radius: 15px; width: 300px; padding: 20px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); text-align: center;">
+            <img src="/pic/lashlift.png" alt="Lash Lifts" style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
+            <h3 style="font-size: 1.5em; color: #ff69b4;">Lash Lifts</h3>
+            <p style="font-size: 1.1em; color: #ff85c2;">Get naturally lifted lashes that stay curled and luscious for weeks without extensions.</p>
+          </div>
+        </div>
+      
+        <!-- Call to Action -->
+        <div style="margin-top: 50px;">
+          <button style="padding: 15px 30px; background-color: #ff69b4; color: white; border: none; border-radius: 30px; font-size: 1.3em; cursor: pointer; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);">
+            <a href="https://wa.me/2348125075099?text=I%20want%20to%20book%20a%20service%20at%20Yaremi%20Lash%20Loft" style="color: white; text-decoration: none;">Book Your Appointment</a>
+          </button>
+        </div>
+      </div>
+
+
+     <!-- Music Section -->
+     <!DOCTYPE html>
+     <html lang="en">
+     <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Eyelash Styles</title>
+       <style>
+         /* General Styling */
+         body {
+           font-family: "Georgia", serif;
+           margin: 0;
+           padding: 0;
+           background-color: #ffb6c1; /* Light pink */
+         }
+     
+         /* Popup Menu Container */
+         .popup-menu {
+           width: 80%;
+           margin: 50px auto;
+           padding: 20px;
+           background: white;
+           box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+           border-radius: 10px;
+           position: relative;
+           z-index: 10;
+         }
+     
+         h2 {
+           text-align: center;
+           color: #333;
+         }
+     
+         .lash-types {
+           display: flex;
+           justify-content: space-around;
+           flex-wrap: wrap;
+         }
+     
+         .lash-item {
+           position: relative;
+           width: 30%;
+           margin: 10px 0;
+           cursor: pointer;
+           text-align: center;
+         }
+     
+         .lash-item img {
+           width: 100%;
+           border-radius: 10px;
+           transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+         }
+     
+         .lash-item img:hover {
+           transform: scale(1.05);
+           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+         }
+     
+         .lash-item h3 {
+           margin-top: 10px;
+           color: #555;
+           font-size: 1.2em;
+         }
+     
+         /* Tooltip Popup */
+         .lash-item .tooltip {
+           display: none;
+           position: absolute;
+           bottom: 120%;
+           left: 50%;
+           transform: translateX(-50%);
+           width: 250px;
+           background: #fff;
+           color: #333;
+           text-align: center;
+           padding: 10px;
+           border-radius: 8px;
+           box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+         }
+     
+         .lash-item:hover .tooltip {
+           display: block;
+         }
+     
+         .lash-item .tooltip img {
+           width: 100%;
+           margin-bottom: 10px;
+           border-radius: 5px;
+         }
+     
+         .lash-item .tooltip p {
+           font-size: 0.9em;
+           color: #666;
+         }
+       </style>
+     </head>
+     <body>
+       <div class="popup-menu">
+         <h2>Select Your Perfect Lash Style</h2>
+         <div class="lash-types">
+           <!-- Lash Type 1 - Classic Lashes -->
+           <div class="lash-item">
+             <img src="/pic/classic.png" alt="Classic Lashes">
+             <h3>Classic Lashes</h3>
+             <div class="tooltip">
+               <img src="/pic/classic.png" alt="Classic Lash Example">
+               <p>Classic lashes give a natural, beautiful look. Perfect for everyday wear.</p>
+             </div>
+           </div>
+           
+           <!-- Lash Type 2 - Volume Lashes -->
+           <div class="lash-item">
+             <img src="/pic/volume2.png" alt="Volume Lashes">
+             <h3>Volume Lashes</h3>
+             <div class="tooltip">
+               <img src="/pic/volume2.png" alt="Volume Lash Example">
+               <p>Volume lashes are bold and dramatic, ideal for special occasions.</p>
+             </div>
+           </div>
+
+                <!-- Lash Type 4 - Hybrid Lashes -->
+               <div class="lash-item">
+                <img src="/pic/hybrid2.png" alt="Hybrid Lashes">
+                <h3>Hybrid Lashes</h3>
+                <div class="tooltip">
+                  <img src="/pic/hybrid2.png" alt="Hybrid Lash Example">
+                  <p>Hybrid lashes offer a perfect mix of natural styles for a stunning look.</p>
+                </div>
+              </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </body>
+     </html>
+     
+     
+<div class="music-controls" style="text-align: center; margin-top: 20px;">
+    <button id="musicToggle" class="action-btn" style="margin-bottom: 10px; background-color: #ffffff; color: #000000; border: 1px solid #000;">Pause Music</button>
+    <br>
+    <input type="range" id="volumeControl" class="volume-slider" min="0" max="100" value="70" style="display: inline-block; margin-top: 10px; width: 200px;">
+</div>
+
+ <!-- Main Content -->
+ <main class="container mx-auto px-4 md:px-6 py-8">
+    <!-- Endpoints Section -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate__animated animate__fadeInUp">
+        <!-- Endpoint Card 1 -->
+        <div class="endpoint-card rounded-xl p-6">
+            <div class="flex justify-between items-start mb-4">
+<span class="method-badge method-get"></span>
+        <span class="blinking-dot"></span>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">AI</h3>
+            <p class="text-gray-400 text-sm mb-4">Artificial Intelligence Endpoints</p>
+            <a href="https://api.davidcyriltech.my.id/endpoints/ai.html" class="text-blue-400 hover:text-blue-300 text-sm flex items-center">
+               TEST <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+                                    </div>
+<div class="endpoint-card rounded-xl p-6">
+    <div class="flex justify-between items-start mb-4">
+        <span class="method-badge method-get"></span>
+        <span class="blinking-dot"></span>
+    </div>
+    <h3 class="text-xl font-semibold mb-2">Downloaders</h3>
+    <p class="text-gray-400 text-sm mb-4">Media Downloader Endpoints</p>
+    <a href="https://api.davidcyriltech.my.id/endpoints/download.html" class="text-blue-400 hover:text-blue-300 text-sm flex items-center">
+       TEST <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+    </div>
+<div class="endpoint-card rounded-xl p-6">
+    <div class="flex justify-between items-start mb-4">
+        <span class="method-badge method-get"></span>
+        <span class="blinking-dot"></span>
+    </div>
+    <h3 class="text-xl font-semibold mb-2">Tools</h3>
+    <p class="text-gray-400 text-sm mb-4">Tools Endpoints</p>
+    <a href="https://api.davidcyriltech.my.id/endpoints/tools.html" class="text-blue-400 hover:text-blue-300 text-sm flex items-center">
+       TEST <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+        </div>
+<div class="endpoint-card rounded-xl p-6">
+    <div class="flex justify-between items-start mb-4">
+        <span class="method-badge method-get"></span>
+        <span class="blinking-dot"></span>
+    </div>
+    <h3 class="text-xl font-semibold mb-2">Random</h3>
+    <p class="text-gray-400 text-sm mb-4">Random Api Endpoints</p>
+    <a href="https://api.davidcyriltech.my.id/endpoints/random.html" class="text-blue-400 hover:text-blue-300 text-sm flex items-center">
+       TEST <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+     </div>
+<div class="endpoint-card rounded-xl p-6">
+    <div class="flex justify-between items-start mb-4">
+        <span class="method-badge method-get"></span>
+        <span class="blinking-dot"></span>
+    </div>
+    <h3 class="text-xl font-semibold mb-2">Fun</h3>
+    <p class="text-gray-400 text-sm mb-4">Fun Endpoints</p>
+    <a href="https://api.davidcyriltech.my.id/endpoints/fun.html" class="text-blue-400 hover:text-blue-300 text-sm flex items-center">
+       TEST <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+         </div>
+<div class="endpoint-card rounded-xl p-6">
+    <div class="flex justify-between items-start mb-4">
+        <span class="method-badge method-get"></span>
+        <span class="blinking-dot"></span>
+    </div>
+    <h3 class="text-xl font-semibold mb-2">Stalk</h3>
+    <p class="text-gray-400 text-sm mb-4">Stalk Endpoints</p>
+    <a href="https://api.davidcyriltech.my.id/endpoints/stalk.html" class="text-blue-400 hover:text-blue-300 text-sm flex items-center">
+       TEST <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+          </div>
+    </section>
+</main>
+<div id="testimonials" style="background: linear-gradient(to right, #ffcce7, #ffe6f2); padding: 50px 20px; text-align: center; border-radius: 15px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);">
+    <h2 style="font-family: 'Brush Script MT', cursive; font-size: 3em; color: #ff69b4; margin-bottom: 20px;">Our Happy Clients</h2>
+    <p style="font-size: 1.3em; color: #ff85c2; margin-bottom: 40px;">Real experiences from our beautiful clients who trusted us with their lashes. Share your thoughts below!</p>
+  
+    <!-- Testimonials Display Section -->
+    <div id="reviews" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+      <!-- Example Review -->
+      <div class="review-card" style="background: white; border-radius: 15px; width: 280px; padding: 20px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); text-align: left;">
+        <img src="/pic/background.png" alt="Client Image" style="width: 100%; border-radius: 15px; margin-bottom: 15px;">
+        <p style="font-size: 1.2em; font-style: italic; color: #ff69b4;">"The service was amazing! My lashes look stunning."</p>
+        <p style="text-align: right; font-size: 1em; font-weight: bold; color: #ff85c2;">- Jane D.</p>
+      </div>
+    </div>
+  
+    <!-- Review Submission Form -->
+    <div id="review-form" style="margin-top: 50px; text-align: left; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); max-width: 500px; margin: 50px auto;">
+      <h3 style="font-family: 'Brush Script MT', cursive; font-size: 2em; color: #ff69b4; text-align: center;">Share Your Experience</h3>
+      <form id="addReviewForm">
+        <label for="name" style="font-size: 1.2em; color: #ff69b4;">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ff85c2; border-radius: 10px;">
+  
+        <label for="review" style="font-size: 1.2em; color: #ff69b4;">Your Review</label>
+        <textarea id="review" name="review" placeholder="Share your thoughts" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ff85c2; border-radius: 10px;"></textarea>
+  
+        <button type="submit" style="width: 100%; padding: 15px; background-color: #ff69b4; color: white; border: none; border-radius: 10px; font-size: 1.2em; cursor: pointer;">Submit Review</button>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    const form = document.getElementById('addReviewForm');
+    const reviewsContainer = document.getElementById('reviews');
+  
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent form refresh
+  
+      // Get form values
+      const name = document.getElementById('name').value;
+      const review = document.getElementById('review').value;
+  
+      // Create a new review card
+      const newReview = document.createElement('div');
+      newReview.className = 'review-card';
+      newReview.style.cssText = 'background: white; border-radius: 15px; width: 280px; padding: 20px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); text-align: left;';
+  
+      // Add review content
+      newReview.innerHTML = `
+        <img src="/pic/default.png" alt="Client Image" style="width: 100%; border-radius: 15px; margin-bottom: 15px;">
+        <p style="font-size: 1.2em; font-style: italic; color: #ff69b4;">"${review}"</p>
+        <p style="text-align: right; font-size: 1em; font-weight: bold; color: #ff85c2;">- ${name}</p>
+      `;
+  
+      // Append the new review to the reviews container
+      reviewsContainer.appendChild(newReview);
+  
+      // Clear form
+      form.reset();
+    });
+  </script>
+<!-- Music Section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Widget</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .footer-widget {
+      position: fixed; /* Stays at the bottom */
+      bottom: 0;
+      left: 0;
+      width: 100%; /* Full width */
+      background-color: #ffffff;
+      padding: 15px 20px;
+      border-radius: 15px 15px 0 0; /* Rounded top edges */
+      box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+      display: flex; /* Horizontal layout */
+      justify-content: space-around;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .image-box {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%; /* Makes the box circular */
+      background-color: #e0e0e0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .image-box:hover {
+      transform: scale(1.1); /* Slight zoom on hover */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the image fills the circle */
+    }
+  </style>
+</head>
+<body>
+  <!-- Footer Widget -->
+  <div class="footer-widget">
+    <div class="image-box"><img src="/pic/volume.png" alt="Volume"></div>
+    <div class="image-box"><img src="/pic/squareeye.png" alt="Square Eye"></div>
+    <div class="image-box"><img src="/pic/tripleeye.png" alt="Triple Eye"></div>
+    <div class="image-box"><img src="/pic/showcase.png" alt="Showcase"></div>
+    <div class="image-box"><img src="/pic/justeyes.png" alt="Just Eyes"></div>
+    <div class="image-box"><img src="/pic/eyefixing.png" alt="Eye Fixing"></div>
+    <div class="image-box"><img src="/pic/finegirl.png" alt="Fine Girl"></div>
+  </div>
+</body>
+</html>
+
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div id="cookie-consent" class="cookie-consent">
+    <p>We use cookies to improve your experience. <a href="/privacy-policy">Learn more</a>.</p>
+    <button onclick="document.getElementById('cookie-consent').style.display='none'">Got it!</button>
+  </div>
+ 
+<!-- Footer -->
+<footer class="mt-16 py-8 px-6 text-center border-t border-gray-800">
+    <p class="text-gray-400 text-sm">
+        © 2024 - 2099 Marx Bot inc. All rights reserved.
+        <br>
+        <span class="text-xs">Created With <i class="fas fa-heart text-red-500"></i> By <a href="https://wa.me/2348125075099?text=I%20would%20like%20to%20book%20an%20appointment%20at%20Yaremi%20Lash%20Loft">Marx Bot Inc<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right-square" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707z"></path>
+          </svg></a></span>
+    </p>
+</footer>
+<script src="js/howler.min.js"></script>
+<script>
+    // Background Music
+    const sound = new Howl({
+        src: ['./background-music.mp3'], // Ensure the file path is correct
+        loop: true,
+        volume: 0.5,
+        onloaderror: () => {
+            console.error("Error loading music file. Ensure 'background-music.mp3' exists in the correct location.");
+        }
+    });
+
+    // Autoplay Music on Load
+    window.addEventListener('load', () => {
+        try {
+            sound.play();
+        } catch (err) {
+            console.error("Autoplay blocked by browser. Waiting for user interaction.");
+        }
+    });
+
+    // Toggle Music
+    const musicToggle = document.getElementById('musicToggle');
+    musicToggle.addEventListener('click', () => {
+        if (sound.playing()) {
+            sound.pause();
+            musicToggle.textContent = 'Play Music';
+        } else {
+            sound.play();
+            musicToggle.textContent = 'Pause Music';
+        }
+    });
+
+    // Volume Control
+    const volumeControl = document.getElementById('volumeControl');
+    volumeControl.addEventListener('input', (e) => {
+        sound.volume(e.target.value / 100);
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    window.onload = function() {
+        Swal.fire({
+title: "Welcome to Yaremi Lash loft.",
+text: "Yaremi Lashes: Where Every Blink Tells a Story 🥰🔥",
+icon: "success",
+});
+    }
+    </script>
+    <script src="js/typed.min.js"></script>
+    <script>
+      var typing = new Typed(".typing", {
+        strings: ["WelcomE to Yaremi lash loft", "Develop By Marx"],
+        typeSpeed: 100,
+        backSpeed: 50,
+        loop: true
+      });
+    </script>
+  <script src="js/axios.min.js"></script>
+<script>
+       async function runtime() {
+            const ambil = await axios.get('/stats')
+            const bilek = ambil.data.uptime
+            return bilek
+          
+        }
+
+        runtime().then(quote => {
+            document.getElementById("uptime").textContent = quote;
+        })
+ // Slider functionality
+ const sliderContainer = document.querySelector('.slider-container');
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.slider-indicator');
+    const prevButton = document.getElementById('prevSlide');
+    const nextButton = document.getElementById('nextSlide');
+    let currentSlide = 0;
+    
+    function updateSlider() {
+        sliderContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateSlider();
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateSlider();
+    }
+    
+    // Add click event listeners
+    prevButton.addEventListener('click', prevSlide);
+    nextButton.addEventListener('click', nextSlide);
+    
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            currentSlide = index;
+            updateSlider();
+        });
+    });
+    
+  
+    // Auto-slide every 5 seconds
+    setInterval(nextSlide, 5000);
+    // Create stars background
+    function createStars() {
+        const starsContainer = document.getElementById('stars');
+        const numberOfStars = 100;
+
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            const size = Math.random() * 2 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            starsContainer.appendChild(star);
+        }
+    }
+
+    // Initialize stars
+    createStars();
+
+    // Mobile menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const body = document.body;
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+            hamburger.classList
+        }})
+            </script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" data-cf-beacon="{" rayid":"9036dfd44a3966d8","version":"2025.1.0","r":1,"token":"7da7fd110a4b4b019db1662db5d6d676","servertiming":{"name":{"cfextpri":true,"cfl4":true,"cfspeedbrain":true,"cfcachestatus":true}}}"="" crossorigin="anonymous"></script>
+</main></body></html>
